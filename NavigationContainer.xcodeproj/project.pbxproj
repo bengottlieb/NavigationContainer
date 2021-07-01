@@ -11,6 +11,15 @@
 		B59EB7DD268912A2009B52E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7DC268912A2009B52E8 /* ContentView.swift */; };
 		B59EB7DF268912A3009B52E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59EB7DE268912A3009B52E8 /* Assets.xcassets */; };
 		B59EB7E2268912A3009B52E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59EB7E1268912A3009B52E8 /* Preview Assets.xcassets */; };
+		B59EB7EA26891444009B52E8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7E926891444009B52E8 /* Model.swift */; };
+		B59EB7EC26891458009B52E8 /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7EB26891458009B52E8 /* ImageListView.swift */; };
+		B59EB7EE26891936009B52E8 /* NavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7ED26891936009B52E8 /* NavigationContainer.swift */; };
+		B59EB7F026891B81009B52E8 /* NavigationContainer+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7EF26891B81009B52E8 /* NavigationContainer+Coordinator.swift */; };
+		B59EB7F226891B93009B52E8 /* NavigationContainerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7F126891B93009B52E8 /* NavigationContainerPage.swift */; };
+		B59EB7F426891BB2009B52E8 /* NavigationContainerLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7F326891BB2009B52E8 /* NavigationContainerLink.swift */; };
+		B59EB7F726891DCE009B52E8 /* NavigationContainerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7F626891DCE009B52E8 /* NavigationContainerBar.swift */; };
+		B59EB7F926893007009B52E8 /* NavigationContainer+Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7F826893007009B52E8 /* NavigationContainer+Preferences.swift */; };
+		B59EB7FB26893417009B52E8 /* ImageDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59EB7FA26893417009B52E8 /* ImageDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +29,15 @@
 		B59EB7DE268912A3009B52E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B59EB7E1268912A3009B52E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B59EB7E3268912A3009B52E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B59EB7E926891444009B52E8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B59EB7EB26891458009B52E8 /* ImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
+		B59EB7ED26891936009B52E8 /* NavigationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContainer.swift; sourceTree = "<group>"; };
+		B59EB7EF26891B81009B52E8 /* NavigationContainer+Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationContainer+Coordinator.swift"; sourceTree = "<group>"; };
+		B59EB7F126891B93009B52E8 /* NavigationContainerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContainerPage.swift; sourceTree = "<group>"; };
+		B59EB7F326891BB2009B52E8 /* NavigationContainerLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContainerLink.swift; sourceTree = "<group>"; };
+		B59EB7F626891DCE009B52E8 /* NavigationContainerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContainerBar.swift; sourceTree = "<group>"; };
+		B59EB7F826893007009B52E8 /* NavigationContainer+Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationContainer+Preferences.swift"; sourceTree = "<group>"; };
+		B59EB7FA26893417009B52E8 /* ImageDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,10 @@
 			children = (
 				B59EB7DA268912A2009B52E8 /* NavigationContainerApp.swift */,
 				B59EB7DC268912A2009B52E8 /* ContentView.swift */,
+				B59EB7EB26891458009B52E8 /* ImageListView.swift */,
+				B59EB7FA26893417009B52E8 /* ImageDetailsView.swift */,
+				B59EB7F526891C63009B52E8 /* Navigation Container */,
+				B59EB7E926891444009B52E8 /* Model.swift */,
 				B59EB7DE268912A3009B52E8 /* Assets.xcassets */,
 				B59EB7E3268912A3009B52E8 /* Info.plist */,
 				B59EB7E0268912A3009B52E8 /* Preview Content */,
@@ -67,6 +89,19 @@
 				B59EB7E1268912A3009B52E8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B59EB7F526891C63009B52E8 /* Navigation Container */ = {
+			isa = PBXGroup;
+			children = (
+				B59EB7ED26891936009B52E8 /* NavigationContainer.swift */,
+				B59EB7F626891DCE009B52E8 /* NavigationContainerBar.swift */,
+				B59EB7F326891BB2009B52E8 /* NavigationContainerLink.swift */,
+				B59EB7F126891B93009B52E8 /* NavigationContainerPage.swift */,
+				B59EB7F826893007009B52E8 /* NavigationContainer+Preferences.swift */,
+				B59EB7EF26891B81009B52E8 /* NavigationContainer+Coordinator.swift */,
+			);
+			path = "Navigation Container";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +173,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59EB7EC26891458009B52E8 /* ImageListView.swift in Sources */,
+				B59EB7F726891DCE009B52E8 /* NavigationContainerBar.swift in Sources */,
+				B59EB7FB26893417009B52E8 /* ImageDetailsView.swift in Sources */,
+				B59EB7F426891BB2009B52E8 /* NavigationContainerLink.swift in Sources */,
+				B59EB7F226891B93009B52E8 /* NavigationContainerPage.swift in Sources */,
+				B59EB7F926893007009B52E8 /* NavigationContainer+Preferences.swift in Sources */,
+				B59EB7EE26891936009B52E8 /* NavigationContainer.swift in Sources */,
+				B59EB7EA26891444009B52E8 /* Model.swift in Sources */,
 				B59EB7DD268912A2009B52E8 /* ContentView.swift in Sources */,
+				B59EB7F026891B81009B52E8 /* NavigationContainer+Coordinator.swift in Sources */,
 				B59EB7DB268912A2009B52E8 /* NavigationContainerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

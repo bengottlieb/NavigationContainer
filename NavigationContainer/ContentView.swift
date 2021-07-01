@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+		NavigationContainer() {
+			ImageListView(title: "Symbols", symbols: model)
+		}
+		.imageScale(.large)
     }
 }
 
