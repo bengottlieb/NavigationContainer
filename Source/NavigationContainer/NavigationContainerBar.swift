@@ -9,19 +9,24 @@ import SwiftUI
 
 struct NavigationContainerBar: View {
 	@EnvironmentObject var coordinator: NavigationContainerCoordinator
-
+	
 	let title: String?
+	var leading: AnyView?
+	var trailing: AnyView?
+	var showBackButton: Bool { coordinator.canGoBack }
 	
 	var body: some View {
 		ZStack() {
-			if coordinator.canGoBack {
-				HStack() {
+			HStack() {
+				if showBackButton {
 					Button(action: { coordinator.pop() }) {
 						Image(systemName: "chevron.left")
 							.padding()
 					}
-					Spacer()
 				}
+				if let leading = leading { leading.padding(showBackButton ? [] : [.horizontal]) }
+				Spacer()
+				if let trailing = trailing { trailing.padding(.horizontal) }
 			}
 			HStack() {
 				if let title = title {

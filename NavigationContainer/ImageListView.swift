@@ -10,7 +10,12 @@ import SwiftUI
 struct ImageListView: View {
 	let title: String
 	let symbols: [Symbol]
-	
+	@EnvironmentObject var coordinator: NavigationContainerCoordinator
+
+	func back() {
+		coordinator.pop()
+	}
+
 	var body: some View {
 		ZStack() {
 			Color.yellow
@@ -36,6 +41,10 @@ struct ImageListView: View {
 			}
 		}
 		.navigationContainerTitle(title)
+		.navigationContainerBarItems(leading: Button(action: back) {
+			Text("Back")
+		})
+
 	}
 }
 

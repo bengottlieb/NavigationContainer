@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NavigationContainer<Content: View>: View {
+public struct NavigationContainer<Content: View>: View {
 	@StateObject var coordinator = NavigationContainerCoordinator()
 	let content: () -> Content
 	
@@ -31,7 +31,7 @@ struct NavigationContainer<Content: View>: View {
 		}
 	}
 	
-	var body: some View {
+	public var body: some View {
 		ZStack() {
 			Color.green
 				.edgesIgnoringSafeArea(.all)

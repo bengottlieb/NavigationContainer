@@ -8,21 +8,27 @@
 import SwiftUI
 
 struct ImageDetailsView: View {
+	@EnvironmentObject var coordinator: NavigationContainerCoordinator
 	let symbol: Symbol
+	
 	var body: some View {
-		VStack() {
-			HStack() {
-				Spacer()
-				Button(action: {}) {
-					Image(systemName: "xmark")
-						.padding()
+		ZStack() {
+			Color.red
+				.edgesIgnoringSafeArea(.all)
+			VStack() {
+				HStack() {
+					Spacer()
+					Button(action: { coordinator.pop() }) {
+						Image(systemName: "xmark")
+							.padding()
+					}
 				}
+				symbol.image
+					.font(.system(size: 100))
 			}
-			symbol.image
-				.font(.system(size: 100))
+			.background(Color.purple)
+			.navigationContainerBarHidden(true)
+			.navigationContainerTitle("Not Shown")
 		}
-		.background(Color.purple)
-		.navigationContainerBarHidden(true)
-		.navigationContainerTitle("Not Shown")
 	}
 }

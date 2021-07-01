@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct NavigationContainerLink<Label: View, Destination: View>: View {
+public struct NavigationContainerLink<Label: View, Destination: View>: View {
 	@EnvironmentObject var coordinator: NavigationContainerCoordinator
 	let label: () -> Label
 	let destination: () -> Destination
 	
-	init(destination: @escaping () -> Destination, label: @escaping () -> Label) {
+	public init(destination: @escaping () -> Destination, label: @escaping () -> Label) {
 		self.label = label
 		self.destination = destination
 	}
 
-	init(destination: Destination, label: @escaping () -> Label) {
+	public init(destination: Destination, label: @escaping () -> Label) {
 		self.label = label
 		self.destination = { destination }
 	}
@@ -26,7 +26,7 @@ struct NavigationContainerLink<Label: View, Destination: View>: View {
 		coordinator.push(to: destination)
 	}
 	
-	var body: some View {
+	public var body: some View {
 		Button(action: goToDestination) {
 			label()
 		}
