@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+extension Color {
+	static func random() -> Color {
+		[.red, .gray, .green, .yellow, .orange].randomElement()!
+	}
+}
+
 struct Symbol: Identifiable {
 	let name: String
 	var id: String { name }
 	var subs: [Symbol] = []
+	var color: Color = .random()
 	
 	var image: Image {
 		guard let first = subs.first else { return Image(systemName: name) }

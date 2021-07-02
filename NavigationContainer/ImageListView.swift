@@ -10,6 +10,7 @@ import SwiftUI
 struct ImageListView: View {
 	let title: String
 	let symbols: [Symbol]
+	let background: Color
 	@EnvironmentObject var coordinator: NavigationContainerCoordinator
 
 	func back() {
@@ -18,7 +19,7 @@ struct ImageListView: View {
 
 	var body: some View {
 		ZStack() {
-			Color.yellow
+			background
 				.edgesIgnoringSafeArea(.all)
 			VStack() {
 				ForEach(symbols) { symbol in
@@ -30,7 +31,7 @@ struct ImageListView: View {
 							}
 						}
 					} else {
-						NavigationContainerLink(destination: ImageListView(title: symbol.name, symbols: symbol.subs)) {
+						NavigationContainerLink(destination: ImageListView(title: symbol.name, symbols: symbol.subs, background: symbol.color)) {
 							HStack() {
 								symbol.image
 								Text(symbol.name)
@@ -41,16 +42,17 @@ struct ImageListView: View {
 			}
 		}
 		.navigationContainerTitle(title)
-		.navigationContainerBarItems(leading: Button(action: back) {
-			Text("Back")
+		.navigationContainerBarItems(leading: HStack() {
+			if coordinator.canGoBack { Button(action: back) { Text("Back") } }
 		})
+		.navigationContainerBarColor(background.opacity(0.5))
 
 	}
 }
 
 struct ImageListView_Previews: PreviewProvider {
 	static var previews: some View {
-		ImageListView(title: "Testing", symbols: model)
+		ImageListView(title: "Testing", symbols: model, background: .red)
 	}
 }
 

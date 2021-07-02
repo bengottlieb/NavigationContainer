@@ -12,7 +12,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
 		NavigationContainer() {
-			ImageListView(title: "Symbols", symbols: model)
+			ImageListView(title: "Symbols", symbols: model, background: .purple)
 		}
 		.imageScale(.large)
     }

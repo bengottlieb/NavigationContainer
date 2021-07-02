@@ -10,7 +10,8 @@ import SwiftUI
 public class NavigationContainerCoordinator: ObservableObject {
 	var stack: [ViewPackage] = []
 	var isPushing = false
-	
+	var isAnimating = false
+
 	struct ViewPackage: Equatable {
 		let view: AnyView
 		let id: String
@@ -31,12 +32,23 @@ public class NavigationContainerCoordinator: ObservableObject {
 	}
 	
 	var top: ViewPackage? { stack.last }
+	var behindTop: ViewPackage? { stack.count > 1 ? stack[stack.count - 2] : nil }
+	func canGoBack(from view: ViewPackage) -> Bool {
+		guard let index = stack.firstIndex(of: view) else { return false }
+		return index > 0 
+	}
 	var canGoBack: Bool { stack.count > 1 }
 	
 	public func pop(animated: Bool = true) {
 		isPushing = false
+		isAnimating = animated
 		if stack.count > 1 {
-			withAnimation(.linear(duration: animated ? 1 : 0)) {
+			if animated {
+				withAnimation(.linear(duration: 1)) {
+					stack.removeLast()
+					self.objectWillChange.send()
+				}
+			} else {
 				stack.removeLast()
 				self.objectWillChange.send()
 			}
@@ -47,6 +59,7 @@ public class NavigationContainerCoordinator: ObservableObject {
 		let newView = ViewPackage(destination(), id: id, isRoot: isRoot)
 		if stack.contains(newView) { return }
 		isPushing = true
+		isAnimating = animated
 		
 		withAnimation(.linear(duration: animated ? 1 : 0)) {
 			stack.append(newView)

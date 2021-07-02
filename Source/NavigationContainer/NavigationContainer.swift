@@ -24,7 +24,7 @@ public struct NavigationContainer<Content: View>: View {
 	}
 	
 	var currentAnimation: Animation? {
-		if coordinator.top?.isRoot == false || !coordinator.isPushing {
+		if coordinator.top?.isRoot == false || (!coordinator.isPushing && coordinator.isAnimating) {
 			return .easeIn(duration: 0.2)
 		} else {
 			return nil
@@ -35,6 +35,12 @@ public struct NavigationContainer<Content: View>: View {
 		ZStack() {
 			Color.green
 				.edgesIgnoringSafeArea(.all)
+			
+			if let behindTop = coordinator.behindTop {
+				NavigationContainerPage(content: behindTop)
+					.transition(.opacity)
+					.zIndex(1)
+			}
 			
 			if let top = coordinator.top {
 				NavigationContainerPage(content: top)

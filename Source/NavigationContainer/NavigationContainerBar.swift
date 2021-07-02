@@ -10,10 +10,12 @@ import SwiftUI
 struct NavigationContainerBar: View {
 	@EnvironmentObject var coordinator: NavigationContainerCoordinator
 	
+	let viewPackage: NavigationContainerCoordinator.ViewPackage
 	let title: String?
 	var leading: AnyView?
 	var trailing: AnyView?
-	var showBackButton: Bool { coordinator.canGoBack }
+	var color: Color?
+	var showBackButton: Bool { coordinator.canGoBack(from: viewPackage) }
 	
 	var body: some View {
 		ZStack() {
@@ -35,5 +37,6 @@ struct NavigationContainerBar: View {
 			}
 		}
 		.frame(height: 44)
+		.background(color)
 	}
 }

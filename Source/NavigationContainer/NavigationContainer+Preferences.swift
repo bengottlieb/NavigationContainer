@@ -25,6 +25,11 @@ struct NavigationContainerTitleKey: PreferenceKey {
 	static func reduce(value: inout String?, nextValue: () -> String?) { value = value ?? nextValue() }
 }
 
+struct NavigationContainerBarColorKey: PreferenceKey {
+	static var defaultValue: Color? = nil
+	static func reduce(value: inout Color?, nextValue: () -> Color?) { value = value ?? nextValue() }
+}
+
 struct NavigationContainerBarHiddenKey: PreferenceKey {
 	static var defaultValue: Bool = false
 	static func reduce(value: inout Bool, nextValue: () -> Bool) { value = value || nextValue() }
@@ -44,6 +49,11 @@ public extension View {
 	func navigationContainerTitle(_ title: String?) -> some View {
 		self
 			.preference(key: NavigationContainerTitleKey.self, value: title)
+	}
+
+	func navigationContainerBarColor(_ color: Color?) -> some View {
+		self
+			.preference(key: NavigationContainerBarColorKey.self, value: color)
 	}
 
 	func navigationContainerBarHidden(_ hidden: Bool) -> some View {
