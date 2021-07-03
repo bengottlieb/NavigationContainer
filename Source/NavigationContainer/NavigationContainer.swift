@@ -11,11 +11,12 @@ public struct NavigationContainer<Content: View>: View {
 	@StateObject var coordinator = NavigationContainerCoordinator()
 	let content: () -> Content
 	
-	init(content: @escaping () -> Content) {
+	public init(content: @escaping () -> Content) {
 		self.content = content
 	}
 	
 	var currentTransition: AnyTransition {
+		if coordinator.disableAnimations { return .identity }
 		if coordinator.isPushing {
 			return AnyTransition.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
 		} else {
@@ -24,6 +25,7 @@ public struct NavigationContainer<Content: View>: View {
 	}
 	
 	var currentAnimation: Animation? {
+		if coordinator.disableAnimations { return nil }
 		if coordinator.top?.isRoot == false || (!coordinator.isPushing && coordinator.isAnimating) {
 			return .easeIn(duration: 0.2)
 		} else {

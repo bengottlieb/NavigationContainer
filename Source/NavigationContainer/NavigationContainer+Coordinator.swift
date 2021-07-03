@@ -11,6 +11,7 @@ public class NavigationContainerCoordinator: ObservableObject {
 	var stack: [ViewPackage] = []
 	var isPushing = false
 	var isAnimating = false
+	var disableAnimations = false
 
 	struct ViewPackage: Equatable {
 		let view: AnyView
@@ -42,6 +43,7 @@ public class NavigationContainerCoordinator: ObservableObject {
 	public func pop(animated: Bool = true) {
 		isPushing = false
 		isAnimating = animated
+		if animated == false { disableAnimations = true }
 		if stack.count > 1 {
 			if animated {
 				withAnimation(.linear(duration: 1)) {
@@ -53,6 +55,7 @@ public class NavigationContainerCoordinator: ObservableObject {
 				self.objectWillChange.send()
 			}
 		}
+		if disableAnimations { DispatchQueue.main.async { self.disableAnimations = false }}
 	}
 	
 	public func push<Destination: View>(animated: Bool = true, id: String? = nil, isRoot: Bool = false, to destination: @escaping () -> Destination) {
