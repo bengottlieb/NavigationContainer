@@ -34,9 +34,7 @@ struct NavigationContainerPage: View {
 			content.view
 				.frame(maxHeight: .infinity)
 				.frame(maxWidth: .infinity)
-				.background(Color.blue)
 		}
-		.background(Color.white)
 		.id(content.id)
 		.onPreferenceChange(NavigationContainerBarHiddenKey.self) { hidden in
 			navigationBarHidden = hidden
@@ -46,6 +44,9 @@ struct NavigationContainerPage: View {
 		}
 		.onPreferenceChange(NavigationContainerBarItemsLeadingKey.self) { items in
 			navigationBarLeadingItems = items
+		}
+		.onPreferenceChange(NavigationContainerBarItemsTrailingKey.self) { items in
+			navigationBarTrailingItems = items
 		}
 		.onPreferenceChange(NavigationContainerBarColorKey.self) { color in
 			navigationContainerBarColor = color

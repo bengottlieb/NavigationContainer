@@ -35,9 +35,6 @@ public struct NavigationContainer<Content: View>: View {
 	
 	public var body: some View {
 		ZStack() {
-			Color.green
-				.edgesIgnoringSafeArea(.all)
-			
 			if let behindTop = coordinator.behindTop {
 				NavigationContainerPage(content: behindTop)
 					.transition(.opacity)
