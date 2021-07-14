@@ -38,7 +38,7 @@ public class NavigationContainerCoordinator: ObservableObject {
 		guard let index = stack.firstIndex(of: view) else { return false }
 		return index > 0 
 	}
-	var canGoBack: Bool { stack.count > 1 }
+	public var canGoBack: Bool { stack.count > 1 }
 	
 	public func pop(animated: Bool = true) {
 		isPushing = false
